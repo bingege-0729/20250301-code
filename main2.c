@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-//¸Ã¾Æµê·¿¼äÊıÁ¿µÄ×î´óÖµ
+//è¯¥é…’åº—æˆ¿é—´æ•°é‡çš„æœ€å¤§å€¼
 int Max_rooms = 10;
 int Max_guest = 20;
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
-//·¿¼äÖ÷ÒªĞÅÏ¢
+//æˆ¿é—´ä¸»è¦ä¿¡æ¯
 struct rooms_info {
 	int roomNumber;
 	char roomType[20];
@@ -22,23 +22,23 @@ struct guest {
 	int bookedRoom;
 };
 
-//ÏÔÊ¾·¿¼äĞÅÏ¢
-// 3. ÏÔÊ¾¿Í»§ĞÅÏ¢
+//æ˜¾ç¤ºæˆ¿é—´ä¿¡æ¯
+// 3. æ˜¾ç¤ºå®¢æˆ·ä¿¡æ¯
 void displaying_guest(struct guest VIP[], int index) {
-	printf("ĞÕÃû£º%s\t", VIP[index].name);
-	printf("ĞÔ±ğ£º%s\t", VIP[index].gender);
-	printf("ÕË»§Óà¶î£º%d\t", VIP[index].sum);
-	printf("ÓÃ»§µÈ¼¶£º%s\t", VIP[index].whether_VIP);
-	printf("Ô¤¶©·¿¼äºÅ£º%d\n", VIP[index].bookedRoom);
+	printf("å§“åï¼š%s\t", VIP[index].name);
+	printf("æ€§åˆ«ï¼š%s\t", VIP[index].gender);
+	printf("è´¦æˆ·ä½™é¢ï¼š%d\t", VIP[index].sum);
+	printf("ç”¨æˆ·ç­‰çº§ï¼š%s\t", VIP[index].whether_VIP);
+	printf("é¢„è®¢æˆ¿é—´å·ï¼š%d\n", VIP[index].bookedRoom);
 }
 
 void extra_displayingRooms(struct rooms_info room[], int *numRooms) {
 	int i;
-	printf("ÒÔÏÂÎª±¾¾ÆµêÒÑ¶©¹º·¿¼äÇé¿ö£º\n");
-	printf("·¿ºÅ   ");
-	printf("·¿¼äÀàĞÍ  ");
-	printf("·¿¼ä¼Û¸ñ  ");
-	printf("·¿¼ä×´Ì¬\n");
+	printf("ä»¥ä¸‹ä¸ºæœ¬é…’åº—å·²è®¢è´­æˆ¿é—´æƒ…å†µï¼š\n");
+	printf("æˆ¿å·   ");
+	printf("æˆ¿é—´ç±»å‹  ");
+	printf("æˆ¿é—´ä»·æ ¼  ");
+	printf("æˆ¿é—´çŠ¶æ€\n");
 	for (i = 0; i < *numRooms; i++) {
 		printf("%d   ", room[i].roomNumber);
 		printf("%s    ", room[i].roomType);
@@ -53,18 +53,18 @@ void extra_displayingRooms(struct rooms_info room[], int *numRooms) {
 
 
 
-//¾ÆµêÏµÍ³
+//é…’åº—ç³»ç»Ÿ
 
 
-//1.¾Æµê×¨ÃÅÏÔÊ¾·¿¼äĞÅÏ¢
+//1.é…’åº—ä¸“é—¨æ˜¾ç¤ºæˆ¿é—´ä¿¡æ¯
 void displayingRooms(struct rooms_info room[], int *numRooms) {
 	int i;
-	printf("ÒÔÏÂÎª±¾¾ÆµêÒÑ¶©¹º·¿¼äÇé¿ö£º\n");
-	printf("·¿ºÅ   ");
-	printf("·¿¼äÀàĞÍ  ");
-	printf("·¿¼ä¼Û¸ñ  ");
-	printf("·¿¼ä×´Ì¬  ");
-	printf("·¿¼ä×â»§\n");
+	printf("ä»¥ä¸‹ä¸ºæœ¬é…’åº—å·²è®¢è´­æˆ¿é—´æƒ…å†µï¼š\n");
+	printf("æˆ¿å·   ");
+	printf("æˆ¿é—´ç±»å‹  ");
+	printf("æˆ¿é—´ä»·æ ¼  ");
+	printf("æˆ¿é—´çŠ¶æ€  ");
+	printf("æˆ¿é—´ç§Ÿæˆ·\n");
 	for (i = 0; i < *numRooms; i++) {
 		printf("%d   ", room[i].roomNumber);
 		printf("%s    ", room[i].roomType);
@@ -77,19 +77,19 @@ void displayingRooms(struct rooms_info room[], int *numRooms) {
 
 
 
-//2.³õÊ¼»¯·¿¼äĞÅÏ¢
+//2.åˆå§‹åŒ–æˆ¿é—´ä¿¡æ¯
 void initializeRooms(struct rooms_info room[], int *numRooms) {
 	int i;
 	*numRooms = 0;
 	for (i = 0; i < Max_rooms; i++) {
 		room[i].roomNumber = 101 + i;
-		strcpy(room[i].host, "ÎŞÈË" );
+		strcpy(room[i].host, "æ— äºº" );
 		if (i < Max_rooms / 2) {
-			strcpy(room[i].roomType, "µ¥ÈË¼ä");
+			strcpy(room[i].roomType, "å•äººé—´");
 			room[i].price = 200.0;
 
 		} else {
-			strcpy(room[i].roomType, "Ë«ÈË¼ä");
+			strcpy(room[i].roomType, "åŒäººé—´");
 
 			room[i].price = 300.0;
 
@@ -103,16 +103,16 @@ void initializeRooms(struct rooms_info room[], int *numRooms) {
 
 
 
-//3.É¾³ı·¿¼ä
+//3.åˆ é™¤æˆ¿é—´
 void delete_room(struct rooms_info room[], int *numRooms,struct guest guest[],int numGuest) {
 	int i, j;
 	int deletedRoom;
-	printf("ÊäÈëĞèÒªÉ¾³ıµÄ·¿¼äÂë£º");
+	printf("è¾“å…¥éœ€è¦åˆ é™¤çš„æˆ¿é—´ç ï¼š");
 	scanf("%d", &deletedRoom);
 	for (i = 0; i < *numRooms; i++) {
 		if (room[i].roomNumber == deletedRoom) {
 			if (room[i].isBooked == 1) {
-				printf("¸Ã·¿¼äÒÑ±»Ô¤¶©£¬²»ÄÜÉ¾³ı£¡\n");
+				printf("è¯¥æˆ¿é—´å·²è¢«é¢„è®¢ï¼Œä¸èƒ½åˆ é™¤ï¼\n");
 				return;
 			}
 			for (j = i; j < *numRooms - 1; j++) {
@@ -122,26 +122,26 @@ void delete_room(struct rooms_info room[], int *numRooms,struct guest guest[],in
 				room[j].price = room[j + 1].price;
 				strcpy(room[j].host, room[j + 1].host);
 			}
-			//ÇåÀí¹Ë¿ÍÔ¤¶¨¼ÇÂ¼
+			//æ¸…ç†é¡¾å®¢é¢„å®šè®°å½•
 			for(int k=0;k<numGuest;k++){
 				if(guest[k].bookedRoom==deletedRoom){
 					guest[k].bookedRoom=-1;
 				}
 			}
 			(*numRooms)--;
-			printf("É¾³ı³É¹¦£¡\n");
+			printf("åˆ é™¤æˆåŠŸï¼\n");
 			break;
 		}
 	}
 	if (i == *numRooms) {
-		printf("Î´ÕÒµ½¸Ã·¿¼äºÅ£¬É¾³ıÊ§°Ü£¡\n");
+		printf("æœªæ‰¾åˆ°è¯¥æˆ¿é—´å·ï¼Œåˆ é™¤å¤±è´¥ï¼\n");
 	}
 	extra_displayingRooms(room, numRooms);
 }
 
 
 
-//4.Ôö¼Ó·¿¼ä
+//4.å¢åŠ æˆ¿é—´
 void add_room(struct rooms_info room[], int *numRooms) {
 	int choice;
 	int addedRoom;
@@ -150,7 +150,7 @@ void add_room(struct rooms_info room[], int *numRooms) {
 	int isBooked;
 	char host[20];
 	do {
-		printf("ÊäÈëĞèÒª¶îÍâÔö¼ÓµÄ·¿ºÅ¡¢·¿¼äÀàĞÍ¡¢·¿¼ä¼Û¸ñÒÔ¼°·¿¼ä×´¿ö:");
+		printf("è¾“å…¥éœ€è¦é¢å¤–å¢åŠ çš„æˆ¿å·ã€æˆ¿é—´ç±»å‹ã€æˆ¿é—´ä»·æ ¼ä»¥åŠæˆ¿é—´çŠ¶å†µ:");
 		scanf("%d", &addedRoom);
 		scanf("%s", &addedroomType);
 		scanf("%lf", &price);
@@ -163,33 +163,33 @@ void add_room(struct rooms_info room[], int *numRooms) {
 			room[*numRooms].price = (float)price;
 			strcpy(room[*numRooms].host, host);
 			(*numRooms)++;
-			printf("Ìí¼Ó·¿ºÅ³É¹¦£¡\n");
+			printf("æ·»åŠ æˆ¿å·æˆåŠŸï¼\n");
 		} else {
-			printf("·¿¼äÊıÁ¿ÒÑ´ïÉÏÏŞ£¬ÎŞ·¨Ìí¼Ó£¡\n");
+			printf("æˆ¿é—´æ•°é‡å·²è¾¾ä¸Šé™ï¼Œæ— æ³•æ·»åŠ ï¼\n");
 		}
 		extra_displayingRooms(room, *numRooms);
-		printf("ÇëÎÊÊÇ·ñ»¹ĞèÒªÔÙÔö¼Ó£¿");
-		printf("1.È·¶¨\n2.·ñÈÏ\n");
-		printf("ÄãµÄÑ¡ÔñÊÇ£º");
+		printf("è¯·é—®æ˜¯å¦è¿˜éœ€è¦å†å¢åŠ ï¼Ÿ");
+		printf("1.ç¡®å®š\n2.å¦è®¤\n");
+		printf("ä½ çš„é€‰æ‹©æ˜¯ï¼š");
 		scanf("%d", &choice);
 		if (choice != 1 && choice != 2) {
-			printf("ÊäÈë´íÎó£¬ÇëÖØĞÂÊäÈë");
+			printf("è¾“å…¥é”™è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥");
 			system("pause");
 		}
 	} while (choice != 2);
 }
 
-//5.²éÑ¯
+//5.æŸ¥è¯¢
 void hotel_system_search(struct rooms_info room[], int *numRooms) {
-	printf("ÒÔÏÂÎª±¾¾ÆµêÒÑ¶©¹º·¿¼äÇé¿ö£º\n");
+	printf("ä»¥ä¸‹ä¸ºæœ¬é…’åº—å·²è®¢è´­æˆ¿é—´æƒ…å†µï¼š\n");
 	extra_displayingRooms(room, numRooms);
 }
 
 
-// ²éÕÒ¹Ë¿ÍĞÅÏ¢
+// æŸ¥æ‰¾é¡¾å®¢ä¿¡æ¯
 void search_guest_info(struct guest guest[], int numGuest) {
 	char targetName[50];
-	printf("ÇëÊäÈëÒª²éÕÒµÄ¹Ë¿ÍĞÕÃû£º");
+	printf("è¯·è¾“å…¥è¦æŸ¥æ‰¾çš„é¡¾å®¢å§“åï¼š");
 	scanf("%s", targetName);
 	int found = 0;
 	for (int i = 0; i < numGuest; i++) {
@@ -200,23 +200,23 @@ void search_guest_info(struct guest guest[], int numGuest) {
 		}
 	}
 	if (!found) {
-		printf("Î´ÕÒµ½¸Ã¹Ë¿ÍĞÅÏ¢¡£\n");
+		printf("æœªæ‰¾åˆ°è¯¥é¡¾å®¢ä¿¡æ¯ã€‚\n");
 	}
 }
 
-//6.¾ÆµêÄÚ²¿ÏµÍ³
+//6.é…’åº—å†…éƒ¨ç³»ç»Ÿ
 void hotel_system(struct rooms_info room[], int *numRooms, struct guest guest[], int numGuest) {
 	int choice;
 	do {
-		printf("\t*1.²éÑ¯·¿¼ä¶©¹ºÇé¿ö*\t\n");
-		printf("\t*2.É¾³ı·¿¼ä*\t\n");
-		printf("\t*3.Ôö¼Ó·¿¼ä*\t\n");
-		printf("\t*4.²éÑ¯¹Ë¿ÍĞÅÏ¢*\t\n");
-		printf("\t*0.ÍË³ö*\t\n");
+		printf("\t*1.æŸ¥è¯¢æˆ¿é—´è®¢è´­æƒ…å†µ*\t\n");
+		printf("\t*2.åˆ é™¤æˆ¿é—´*\t\n");
+		printf("\t*3.å¢åŠ æˆ¿é—´*\t\n");
+		printf("\t*4.æŸ¥è¯¢é¡¾å®¢ä¿¡æ¯*\t\n");
+		printf("\t*0.é€€å‡º*\t\n");
 		scanf("%d", &choice);
 		switch (choice) {
 			case 1:
-				hotel_system_search(room, numRooms);//int*ÀàĞÍµÄ
+				hotel_system_search(room, numRooms);//int*ç±»å‹çš„
 				break;
 			case 2:
 				delete_room(room, numRooms,guest,numGuest);
@@ -228,53 +228,53 @@ void hotel_system(struct rooms_info room[], int *numRooms, struct guest guest[],
 				search_guest_info(guest, numGuest);
 				break;
 			case 0:
-				printf("ÒÑ³É¹¦ÍË³ö\n");
+				printf("å·²æˆåŠŸé€€å‡º\n");
 				break;
 			default:
-				printf("ÎŞĞ§ÊäÈë£¬ÇëÖØĞÂÊäÈë£¡\n");
+				printf("æ— æ•ˆè¾“å…¥ï¼Œè¯·é‡æ–°è¾“å…¥ï¼\n");
 		}
 	} while (choice != 0);
 }
 
-//¹Ë¿ÍÏµÍ³
-//1.×¢²á
+//é¡¾å®¢ç³»ç»Ÿ
+//1.æ³¨å†Œ
 void regist_name(struct guest name[], int *numGuest) {
-	printf("»¶Ó­¹âÁÙ±¾¾Æµê£¡\n");
-	printf("ÇëÊäÈëÄúµÄĞÕÃû£º");
+	printf("æ¬¢è¿å…‰ä¸´æœ¬é…’åº—ï¼\n");
+	printf("è¯·è¾“å…¥æ‚¨çš„å§“åï¼š");
 	scanf("%s", name[*numGuest].name);
-	printf("ÇëÊäÈëÄúµÄĞÔ±ğ£º");
+	printf("è¯·è¾“å…¥æ‚¨çš„æ€§åˆ«ï¼š");
 	scanf("%s", name[*numGuest].gender);
 	name[*numGuest].sum = 0;
-	strcpy(name[*numGuest].whether_VIP, "·ÇVIP");
+	strcpy(name[*numGuest].whether_VIP, "éVIP");
 	(*numGuest)++;
 }
 
 
-////3.ÏÔÊ¾¿Í»§ĞÅÏ¢
+////3.æ˜¾ç¤ºå®¢æˆ·ä¿¡æ¯
 //void displaying_guest(struct guest VIP[], int index) {
-//	printf("ĞÕÃû£º%s\t", VIP[index].name);
-//	printf("ĞÔ±ğ£º%s\t", VIP[index].gender);
-//	printf("ÕË»§Óà¶î£º%d\t", VIP[index].sum);
-//	printf("ÓÃ»§µÈ¼¶£º%s\t", VIP[index].whether_VIP);
+//	printf("å§“åï¼š%s\t", VIP[index].name);
+//	printf("æ€§åˆ«ï¼š%s\t", VIP[index].gender);
+//	printf("è´¦æˆ·ä½™é¢ï¼š%d\t", VIP[index].sum);
+//	printf("ç”¨æˆ·ç­‰çº§ï¼š%s\t", VIP[index].whether_VIP);
 //	printf("\n");
 //}
 
 
-//2.VIPÏµÍ³
+//2.VIPç³»ç»Ÿ
 void VIP_system(struct guest VIP[], int index) {
-	printf("\t*×ğ¹óµÄVIPÓÃ»§£¬ÄúºÃ£¡*\t\n");
+	printf("\t*å°Šè´µçš„VIPç”¨æˆ·ï¼Œæ‚¨å¥½ï¼*\t\n");
 	displaying_guest(VIP, index);
 }
 
 
-//4.ÅĞ¶ÏÊÇ·ñÎªVIP
+//4.åˆ¤æ–­æ˜¯å¦ä¸ºVIP
 void whether_VIP(struct guest VIP[], int *numGuest, struct rooms_info name[], int *numRooms) {
 	int i, j;
 	int isVIP = 0;
 	if (*numGuest != 0) {
 		for (i = 0; i < *numGuest; i++) {
 			for (j = 0; j < *numRooms; j++) {
-				//²»¿ÉÊ¹ÓÃ¡°==¡±£¬ÓĞ´íÎó£¬ÓÃstrcmp
+				//ä¸å¯ä½¿ç”¨â€œ==â€ï¼Œæœ‰é”™è¯¯ï¼Œç”¨strcmp
 				if (strcmp(VIP[i].name, name[j].host) == 0) {
 					strcpy(VIP[i].whether_VIP, "VIP");
 					VIP_system(VIP, i);
@@ -283,27 +283,27 @@ void whether_VIP(struct guest VIP[], int *numGuest, struct rooms_info name[], in
 				}
 			}
 			if (!isVIP) {
-				strcpy(VIP[i].whether_VIP, "·ÇVIP");
+				strcpy(VIP[i].whether_VIP, "éVIP");
 				displaying_guest(VIP, i);
 			}
 		}
 	}
 
 }
-//5.¶©·¿ÏµÍ³
+//5.è®¢æˆ¿ç³»ç»Ÿ
 void book_room(struct rooms_info room[], int *numRooms, struct guest guest[], int *numGuest) {
-	extra_displayingRooms(room, numRooms); //ĞèÒªµÄÊÇint *ÀàĞÍµÄ
+	extra_displayingRooms(room, numRooms); //éœ€è¦çš„æ˜¯int *ç±»å‹çš„
 	int roomNumber;
-	printf("ÇëÊäÈëÒªÔ¤¶¨µÄ·¿¼äºÅ£º");
+	printf("è¯·è¾“å…¥è¦é¢„å®šçš„æˆ¿é—´å·ï¼š");
 	scanf("%d", &roomNumber);
 	for (int i = 0; i < *numRooms; i++) {
 		if (room[i].roomNumber == roomNumber) {
 			if (room[i].isBooked == 0) {
 				room[i].isBooked = 1;
 				strcpy(room[i].host, guest[*numGuest - 1].name);
-				guest[*numGuest - 1].bookedRoom = roomNumber; // ¸üĞÂÔ¤¶©µÄ·¿¼äºÅ
-				printf("\t*·¿¼äÔ¤¶¨³É¹¦£¡*\t\n");
-				if (strcmp(room[i].roomType, "µ¥ÈË¼ä") == 0) {
+				guest[*numGuest - 1].bookedRoom = roomNumber; // æ›´æ–°é¢„è®¢çš„æˆ¿é—´å·
+				printf("\t*æˆ¿é—´é¢„å®šæˆåŠŸï¼*\t\n");
+				if (strcmp(room[i].roomType, "å•äººé—´") == 0) {
 					guest[*numGuest - 1].sum -= 200;
 				} else {
 					guest[*numGuest - 1].sum -= 300;
@@ -312,53 +312,53 @@ void book_room(struct rooms_info room[], int *numRooms, struct guest guest[], in
 				extra_displayingRooms(room, numRooms);
 				return;
 			} else {
-				printf("\t*¸Ã·¿¼äÒÑ±»Ô¤¶©£¬ÇëÑ¡ÔñÆäËû·¿¼ä¡£*\t\n");
+				printf("\t*è¯¥æˆ¿é—´å·²è¢«é¢„è®¢ï¼Œè¯·é€‰æ‹©å…¶ä»–æˆ¿é—´ã€‚*\t\n");
 				return;
 			}
 		}
 	}
-	printf("Î´ÕÒµ½¸Ã·¿¼äºÅ£¬ÇëÖØĞÂÊäÈë£º");
+	printf("æœªæ‰¾åˆ°è¯¥æˆ¿é—´å·ï¼Œè¯·é‡æ–°è¾“å…¥ï¼š");
 }
-//ÍË·¿ÏµÍ³
+//é€€æˆ¿ç³»ç»Ÿ
 void check_out(struct rooms_info room[], int *numRooms, struct guest guest[], int numGuest) {
 	int roomNumber;
-	printf("ÇëÊäÈëÒªÍË·¿µÄ·¿¼äºÅ£º");
+	printf("è¯·è¾“å…¥è¦é€€æˆ¿çš„æˆ¿é—´å·ï¼š");
 	scanf("%d", &roomNumber);
 	for (int i = 0; i < *numRooms; i++) {
 		if (room[i].roomNumber == roomNumber) {
 			if (room[i].isBooked == 1) {
 				room[i].isBooked = 0;
-				strcpy(room[i].host, "ÎŞÈË");
+				strcpy(room[i].host, "æ— äºº");
 				for (int j = 0; j < numGuest; j++) {
 					if (guest[j].bookedRoom == roomNumber) {
 						guest[j].bookedRoom = -1;
 					}
 				}
-				printf("ÍË·¿³É¹¦£¡\n");
+				printf("é€€æˆ¿æˆåŠŸï¼\n");
 				extra_displayingRooms(room, &numRooms);
 				return;
 			} else {
-				printf("¸Ã·¿¼äÎ´±»Ô¤¶©£¬ÎŞĞèÍË·¿¡£\n");
+				printf("è¯¥æˆ¿é—´æœªè¢«é¢„è®¢ï¼Œæ— éœ€é€€æˆ¿ã€‚\n");
 				return;
 			}
 		}
 	}
-	printf("Î´ÕÒµ½¸Ã·¿¼äºÅ£¬ÇëÖØĞÂÊäÈë¡£\n");
+	printf("æœªæ‰¾åˆ°è¯¥æˆ¿é—´å·ï¼Œè¯·é‡æ–°è¾“å…¥ã€‚\n");
 }
-//³äÖµ
+//å……å€¼
 void charge(struct guest guest[], int index) {
 	displaying_guest(guest, index);
 	int s;
 	int choice;
-	printf("\t*1.³äÖµ*\t\n");
-	printf("\t*2.È¡Ïû*\t\n");
+	printf("\t*1.å……å€¼*\t\n");
+	printf("\t*2.å–æ¶ˆ*\t\n");
 	scanf("%d", &choice);
 	while (choice != 1 && choice != 2) {
-		printf("ÎŞĞ§ÊäÈë£¬ÇëÖØĞÂÑ¡Ôñ£º");
+		printf("æ— æ•ˆè¾“å…¥ï¼Œè¯·é‡æ–°é€‰æ‹©ï¼š");
 		scanf("%d", &choice);
 	}
 	if (choice == 1) {
-		printf("ÇëÊäÈëĞèÒª³äÖµµÄÊı¶î£º");
+		printf("è¯·è¾“å…¥éœ€è¦å……å€¼çš„æ•°é¢ï¼š");
 		scanf("%d", &s);
 		guest[index].sum += s;
 		if (guest[index].sum > 500) {
@@ -366,37 +366,37 @@ void charge(struct guest guest[], int index) {
 			displaying_guest(guest, index);
 		}
 	} else {
-		printf("\t*ÒÑÈ¡Ïû³äÖµ²Ù×÷¡£*\t\n");
+		printf("\t*å·²å–æ¶ˆå……å€¼æ“ä½œã€‚*\t\n");
 	}
 }
-// ĞŞÕıºóµÄguest_systemº¯Êı
+// ä¿®æ­£åçš„guest_systemå‡½æ•°
 void guest_system(struct guest guest[], struct rooms_info room[], int *numGuest, int *numRooms) {
 	int choice;
-	regist_name(guest, numGuest); // ´«µİÖ¸Õë
-	whether_VIP(guest, numGuest, room, numRooms); // ²ÎÊıË³ĞòĞŞÕı
+	regist_name(guest, numGuest); // ä¼ é€’æŒ‡é’ˆ
+	whether_VIP(guest, numGuest, room, numRooms); // å‚æ•°é¡ºåºä¿®æ­£
 	do {
-		displayingRooms(room, numRooms); //ĞèÒªµÄÊÇint *ÀàĞÍµÄ
-		printf("\t*1. Ô¤¶©·¿¼ä*\t\n");
-		printf("\t*2. ÍË·¿*\t\n");
-		printf("\t*3.³äÖµ*\t\n");
-		printf("\t*0. ÍË³öÂÃ¿ÍÏµÍ³*\t\n");
-		printf("Çë×ö³öÑ¡Ôñ:");
+		displayingRooms(room, numRooms); //éœ€è¦çš„æ˜¯int *ç±»å‹çš„
+		printf("\t*1. é¢„è®¢æˆ¿é—´*\t\n");
+		printf("\t*2. é€€æˆ¿*\t\n");
+		printf("\t*3.å……å€¼*\t\n");
+		printf("\t*0. é€€å‡ºæ—…å®¢ç³»ç»Ÿ*\t\n");
+		printf("è¯·åšå‡ºé€‰æ‹©:");
 		scanf("%d", &choice);
 		switch (choice) {
 			case 1:
-				book_room(room, numRooms, guest, numGuest); // ²ÎÊıĞŞÕı
+				book_room(room, numRooms, guest, numGuest); // å‚æ•°ä¿®æ­£
 				break;
 			case 2:
-				check_out(room, numRooms, guest, numGuest); // ²ÎÊıĞŞÕı
+				check_out(room, numRooms, guest, numGuest); // å‚æ•°ä¿®æ­£
 				break;
 			case 3:
 				charge(guest, *numGuest - 1);
 				break;
 			case 0:
-				printf("\t*ÒÑ³É¹¦ÍË³öÂÃ¿ÍÏµÍ³¡£*\t\n");
+				printf("\t*å·²æˆåŠŸé€€å‡ºæ—…å®¢ç³»ç»Ÿã€‚*\t\n");
 				break;
-			default: // ĞŞÕıÆ´Ğ´´íÎó
-				printf("\t*ÎŞĞ§ÊäÈë£¬ÇëÖØĞÂÊäÈë£¡*\t\n");
+			default: // ä¿®æ­£æ‹¼å†™é”™è¯¯
+				printf("\t*æ— æ•ˆè¾“å…¥ï¼Œè¯·é‡æ–°è¾“å…¥ï¼*\t\n");
 		}
 	} while (choice != 0);
 }
@@ -407,425 +407,32 @@ int main(int argc, char *argv[]) {
 	int numGuest = 0;
 	struct rooms_info room[Max_rooms];
 	struct guest guest[Max_guest];
-	initializeRooms(room, &numRooms);//×î³õÈ±ÉÙÕâ²½£¬µ¼ÖÂÊä³öµÄ·¿¼äĞÅÏ¢ÎªÂÒÂë
+	initializeRooms(room, &numRooms);//æœ€åˆç¼ºå°‘è¿™æ­¥ï¼Œå¯¼è‡´è¾“å‡ºçš„æˆ¿é—´ä¿¡æ¯ä¸ºä¹±ç 
 	do {
-		printf("\t*»¶Ó­¹âÁÙ±¾¾Æµê*\t\n");
-		printf("\t*ºÜ¸ßĞËÎªÄú·şÎñ*\t\n");
-		printf("\t*1.¹¤×÷ÈËÔ±*\t\n");
-		printf("\t*2.ÓÎ¿ÍµÇÂ¼*\t\n");
-		printf("\t*0.ÍË³ö*\t\n");
-		printf("Çë×ö³öÑ¡Ôñ:");
+		printf("\t*æ¬¢è¿å…‰ä¸´æœ¬é…’åº—*\t\n");
+		printf("\t*å¾ˆé«˜å…´ä¸ºæ‚¨æœåŠ¡*\t\n");
+		printf("\t*1.å·¥ä½œäººå‘˜*\t\n");
+		printf("\t*2.æ¸¸å®¢ç™»å½•*\t\n");
+		printf("\t*0.é€€å‡º*\t\n");
+		printf("è¯·åšå‡ºé€‰æ‹©:");
 		scanf("%d", &choice);
 		switch (choice) {
 			case 1:
-				//µ÷ÓÃº¯ÊıÒª´«µİÒÑ¶¨ÒåºÃµÄ±äÁ¿£¬·ÇÀàĞÍÉùÃ÷
+				//è°ƒç”¨å‡½æ•°è¦ä¼ é€’å·²å®šä¹‰å¥½çš„å˜é‡ï¼Œéç±»å‹å£°æ˜
 				hotel_system(room, &numRooms, guest, numGuest);
-				//ÊÇnumRooms±äÁ¿µÄµØÖ·£¬ÕâÑù¿ÉÔÚº¯ÊıÄÚ²¿ĞŞ¸ÄÖµ
+				//æ˜¯numRoomså˜é‡çš„åœ°å€ï¼Œè¿™æ ·å¯åœ¨å‡½æ•°å†…éƒ¨ä¿®æ”¹å€¼
 				break;
 			case 2:
 				guest_system(guest, room, &numGuest, &numRooms);
 				break;
 			case 0:
-				printf("¸ĞĞ»Ê¹ÓÃ£¬ÔÙ¼û£¡\n");
+				printf("æ„Ÿè°¢ä½¿ç”¨ï¼Œå†è§ï¼\n");
 				break;
 			default:
-				printf("´íÎóÊäÈë");
-				system("pause");//ÔİÍ££¬°´ÈÎÒâ¼ü¼ÌĞø
-				system("cls");//ÇåÆÁ
+				printf("é”™è¯¯è¾“å…¥");
+				system("pause");//æš‚åœï¼ŒæŒ‰ä»»æ„é”®ç»§ç»­
+				system("cls");//æ¸…å±
 		}
 	} while (choice != 0);
 	return 0;
 }
-//#include <stdio.h>
-//#include <stdlib.h>
-//#include <string.h>
-////¸Ã¾Æµê·¿¼äÊıÁ¿µÄ×î´óÖµ
-//int Max_rooms = 10;
-//int Max_guest = 20;
-//
-///* run this program using the console pauser or add your own getch, system("pause") or input loop */
-////·¿¼äÖ÷ÒªĞÅÏ¢
-//struct rooms_info {
-//    int roomNumber;
-//    char roomType[20];
-//    float price;
-//    int isBooked;
-//    char host[20];
-//};
-//struct guest {
-//    char name[50];
-//    char gender[4];
-//    int sum;
-//    char whether_VIP[5];
-//    int bookedRoom;
-//};
-//
-////ÏÔÊ¾·¿¼äĞÅÏ¢
-//// 3. ÏÔÊ¾¿Í»§ĞÅÏ¢
-//void displaying_guest(struct guest VIP[], int index) {
-//    printf("ĞÕÃû£º%s\t", VIP[index].name);
-//    printf("ĞÔ±ğ£º%s\t", VIP[index].gender);
-//    printf("ÕË»§Óà¶î£º%d\t", VIP[index].sum);
-//    printf("ÓÃ»§µÈ¼¶£º%s\t", VIP[index].whether_VIP);
-//    printf("Ô¤¶©·¿¼äºÅ£º%d\n", VIP[index].bookedRoom);
-//}
-//
-//// ¸Ä½øºóµÄÏÔÊ¾ÒÑÔ¤¶©·¿¼äĞÅÏ¢º¯Êı
-//void displayBookedRooms(struct rooms_info room[], int *numRooms) {
-//    int i;
-//    printf("ÒÔÏÂÎª±¾¾ÆµêÒÑ¶©¹º·¿¼äÇé¿ö£º\n");
-//    printf("%-8s%-12s%-12s%-12s\n", "·¿ºÅ", "·¿¼äÀàĞÍ", "·¿¼ä¼Û¸ñ", "·¿¼ä×´Ì¬");
-//    for (i = 0; i < *numRooms; i++) {
-//        printf("%-8d%-12s%-12.2f%-12d\n", room[i].roomNumber, room[i].roomType, room[i].price, room[i].isBooked);
-//    }
-//}
-//
-////¾ÆµêÏµÍ³
-//
-////1.¾Æµê×¨ÃÅÏÔÊ¾·¿¼äĞÅÏ¢
-//void displayingRooms(struct rooms_info room[], int *numRooms) {
-//    int i;
-//    printf("ÒÔÏÂÎª±¾¾ÆµêÒÑ¶©¹º·¿¼äÇé¿ö£º\n");
-//    printf("%-8s%-12s%-12s%-12s%-12s\n", "·¿ºÅ", "·¿¼äÀàĞÍ", "·¿¼ä¼Û¸ñ", "·¿¼ä×´Ì¬", "·¿¼ä×â»§");
-//    for (i = 0; i < *numRooms; i++) {
-//        printf("%-8d%-12s%-12.2f%-12d%-12s\n", room[i].roomNumber, room[i].roomType, room[i].price, room[i].isBooked, room[i].host);
-//    }
-//}
-//
-////2.³õÊ¼»¯·¿¼äĞÅÏ¢
-//void initializeRooms(struct rooms_info room[], int *numRooms) {
-//    int i;
-//    *numRooms = 0;
-//    for (i = 0; i < Max_rooms; i++) {
-//        room[i].roomNumber = 101 + i;
-//        strcpy(room[i].host, "ÎŞÈË");
-//        if (i < Max_rooms / 2) {
-//            strcpy(room[i].roomType, "µ¥ÈË¼ä");
-//            room[i].price = 200.0;
-//        } else {
-//            strcpy(room[i].roomType, "Ë«ÈË¼ä");
-//            room[i].price = 300.0;
-//        }
-//        room[i].isBooked = 0;
-//        (*numRooms)++;
-//    }
-//}
-//
-////3.É¾³ı·¿¼ä
-//void delete_room(struct rooms_info room[], int *numRooms, struct guest guest[], int numGuest) {
-//    int i, j;
-//    int deletedRoom;
-//    printf("ÊäÈëĞèÒªÉ¾³ıµÄ·¿¼äÂë£º");
-//    scanf("%d", &deletedRoom);
-//    for (i = 0; i < *numRooms; i++) {
-//        if (room[i].roomNumber == deletedRoom) {
-//            if (room[i].isBooked == 1) {
-//                printf("¸Ã·¿¼äÒÑ±»Ô¤¶©£¬²»ÄÜÉ¾³ı£¡\n");
-//                return;
-//            }
-//            for (j = i; j < *numRooms - 1; j++) {
-//                room[j].roomNumber = room[j + 1].roomNumber;
-//                strcpy(room[j].roomType, room[j + 1].roomType);
-//                room[j].isBooked = room[j + 1].isBooked;
-//                room[j].price = room[j + 1].price;
-//                strcpy(room[j].host, room[j + 1].host);
-//            }
-//            //ÇåÀí¹Ë¿ÍÔ¤¶¨¼ÇÂ¼
-//            for (int k = 0; k < numGuest; k++) {
-//                if (guest[k].bookedRoom == deletedRoom) {
-//                    guest[k].bookedRoom = -1;
-//                }
-//            }
-//            (*numRooms)--;
-//            printf("É¾³ı³É¹¦£¡\n");
-//            break;
-//        }
-//    }
-//    if (i == *numRooms) {
-//        printf("Î´ÕÒµ½¸Ã·¿¼äºÅ£¬É¾³ıÊ§°Ü£¡\n");
-//    }
-//    displayBookedRooms(room, numRooms);
-//}
-//
-////4.Ôö¼Ó·¿¼ä
-//void add_room(struct rooms_info room[], int *numRooms) {
-//    int choice;
-//    int addedRoom;
-//    char addedroomType[20];
-//    double price;
-//    int isBooked;
-//    char host[20];
-//    do {
-//        printf("ÊäÈëĞèÒª¶îÍâÔö¼ÓµÄ·¿ºÅ¡¢·¿¼äÀàĞÍ¡¢·¿¼ä¼Û¸ñÒÔ¼°·¿¼ä×´¿ö:");
-//        scanf("%d", &addedRoom);
-//        scanf("%s", addedroomType);
-//        scanf("%lf", &price);
-//        scanf("%d", &isBooked);
-//        scanf("%s", host);
-//        if (*numRooms < Max_rooms) {
-//            room[*numRooms].roomNumber = addedRoom;
-//            strcpy(room[*numRooms].roomType, addedroomType);
-//            room[*numRooms].isBooked = isBooked;
-//            room[*numRooms].price = (float)price;
-//            strcpy(room[*numRooms].host, host);
-//            (*numRooms)++;
-//            printf("Ìí¼Ó·¿ºÅ³É¹¦£¡\n");
-//        } else {
-//            printf("·¿¼äÊıÁ¿ÒÑ´ïÉÏÏŞ£¬ÎŞ·¨Ìí¼Ó£¡\n");
-//        }
-//        displayBookedRooms(room, numRooms);
-//        printf("ÇëÎÊÊÇ·ñ»¹ĞèÒªÔÙÔö¼Ó£¿");
-//        printf("1.È·¶¨\n2.·ñÈÏ\n");
-//        printf("ÄãµÄÑ¡ÔñÊÇ£º");
-//        scanf("%d", &choice);
-//        if (choice != 1 && choice != 2) {
-//            printf("ÊäÈë´íÎó£¬ÇëÖØĞÂÊäÈë");
-//            system("pause");
-//        }
-//    } while (choice != 2);
-//}
-//
-////5.²éÑ¯
-//void hotel_system_search(struct rooms_info room[], int *numRooms) {
-//    printf("ÒÔÏÂÎª±¾¾ÆµêÒÑ¶©¹º·¿¼äÇé¿ö£º\n");
-//    displayBookedRooms(room, numRooms);
-//}
-//
-//// ²éÕÒ¹Ë¿ÍĞÅÏ¢
-//void search_guest_info(struct guest guest[], int numGuest) {
-//    char targetName[50];
-//    printf("ÇëÊäÈëÒª²éÕÒµÄ¹Ë¿ÍĞÕÃû£º");
-//    scanf("%s", targetName);
-//    int found = 0;
-//    for (int i = 0; i < numGuest; i++) {
-//        if (strcmp(guest[i].name, targetName) == 0) {
-//            displaying_guest(guest, i);
-//            found = 1;
-//            break;
-//        }
-//    }
-//    if (!found) {
-//        printf("Î´ÕÒµ½¸Ã¹Ë¿ÍĞÅÏ¢¡£\n");
-//    }
-//}
-//
-////6.¾ÆµêÄÚ²¿ÏµÍ³
-//void hotel_system(struct rooms_info room[], int *numRooms, struct guest guest[], int numGuest) {
-//    int choice;
-//    do {
-//        printf("\t*1.²éÑ¯·¿¼ä¶©¹ºÇé¿ö*\t\n");
-//        printf("\t*2.É¾³ı·¿¼ä*\t\n");
-//        printf("\t*3.Ôö¼Ó·¿¼ä*\t\n");
-//        printf("\t*4.²éÑ¯¹Ë¿ÍĞÅÏ¢*\t\n");
-//        printf("\t*0.ÍË³ö*\t\n");
-//        scanf("%d", &choice);
-//        switch (choice) {
-//            case 1:
-//                hotel_system_search(room, numRooms);
-//                break;
-//            case 2:
-//                delete_room(room, numRooms, guest, numGuest);
-//                break;
-//            case 3:
-//                add_room(room, numRooms);
-//                break;
-//            case 4:
-//                search_guest_info(guest, numGuest);
-//                break;
-//            case 0:
-//                printf("ÒÑ³É¹¦ÍË³ö\n");
-//                break;
-//            default:
-//                printf("ÎŞĞ§ÊäÈë£¬ÇëÖØĞÂÊäÈë£¡\n");
-//        }
-//    } while (choice != 0);
-//}
-//
-////¹Ë¿ÍÏµÍ³
-////1.×¢²á
-//void regist_name(struct guest name[], int *numGuest) {
-//    printf("»¶Ó­¹âÁÙ±¾¾Æµê£¡\n");
-//    printf("ÇëÊäÈëÄúµÄĞÕÃû£º");
-//    scanf("%s", name[*numGuest].name);
-//    printf("ÇëÊäÈëÄúµÄĞÔ±ğ£º");
-//    scanf("%s", name[*numGuest].gender);
-//    name[*numGuest].sum = 0;
-//    strcpy(name[*numGuest].whether_VIP, "·ÇVIP");
-//    (*numGuest)++;
-//}
-//
-////2.VIPÏµÍ³
-//void VIP_system(struct guest VIP[], int index) {
-//    printf("\t*×ğ¹óµÄVIPÓÃ»§£¬ÄúºÃ£¡*\t\n");
-//    displaying_guest(VIP, index);
-//}
-//
-////4.ÅĞ¶ÏÊÇ·ñÎªVIP
-//void whether_VIP(struct guest VIP[], int *numGuest, struct rooms_info name[], int *numRooms) {
-//    int i, j;
-//    int isVIP = 0;
-//    if (*numGuest != 0) {
-//        for (i = 0; i < *numGuest; i++) {
-//            for (j = 0; j < *numRooms; j++) {
-//                //²»¿ÉÊ¹ÓÃ¡°==¡±£¬ÓĞ´íÎó£¬ÓÃstrcmp
-//                if (strcmp(VIP[i].name, name[j].host) == 0) {
-//                    strcpy(VIP[i].whether_VIP, "VIP");
-//                    VIP_system(VIP, i);
-//                    isVIP = 1;
-//                    break;
-//                }
-//            }
-//            if (!isVIP) {
-//                strcpy(VIP[i].whether_VIP, "·ÇVIP");
-//                displaying_guest(VIP, i);
-//            }
-//        }
-//    }
-//}
-//
-////5.¶©·¿ÏµÍ³
-//void book_room(struct rooms_info room[], int *numRooms, struct guest guest[], int *numGuest) {
-//    displayBookedRooms(room, numRooms);
-//    int roomNumber;
-//    printf("ÇëÊäÈëÒªÔ¤¶¨µÄ·¿¼äºÅ£º");
-//    scanf("%d", &roomNumber);
-//    for (int i = 0; i < *numRooms; i++) {
-//        if (room[i].roomNumber == roomNumber) {
-//            if (room[i].isBooked == 0) {
-//                room[i].isBooked = 1;
-//                strcpy(room[i].host, guest[*numGuest - 1].name);
-//                guest[*numGuest - 1].bookedRoom = roomNumber; // ¸üĞÂÔ¤¶©µÄ·¿¼äºÅ
-//                printf("\t*·¿¼äÔ¤¶¨³É¹¦£¡*\t\n");
-//                if (strcmp(room[i].roomType, "µ¥ÈË¼ä") == 0) {
-//                    guest[*numGuest - 1].sum -= 200;
-//                } else {
-//                    guest[*numGuest - 1].sum -= 300;
-//                }
-//                displayBookedRooms(room, numRooms);
-//                return;
-//            } else {
-//                printf("\t*¸Ã·¿¼äÒÑ±»Ô¤¶©£¬ÇëÑ¡ÔñÆäËû·¿¼ä¡£*\t\n");
-//                return;
-//            }
-//        }
-//    }
-//    printf("Î´ÕÒµ½¸Ã·¿¼äºÅ£¬ÇëÖØĞÂÊäÈë£º");
-//}
-//
-////ÍË·¿ÏµÍ³
-//void check_out(struct rooms_info room[], int *numRooms, struct guest guest[], int numGuest) {
-//    int roomNumber;
-//    printf("ÇëÊäÈëÒªÍË·¿µÄ·¿¼äºÅ£º");
-//    scanf("%d", &roomNumber);
-//    for (int i = 0; i < *numRooms; i++) {
-//        if (room[i].roomNumber == roomNumber) {
-//            if (room[i].isBooked == 1) {
-//                room[i].isBooked = 0;
-//                strcpy(room[i].host, "ÎŞÈË");
-//                for (int j = 0; j < numGuest; j++) {
-//                    if (guest[j].bookedRoom == roomNumber) {
-//                        guest[j].bookedRoom = -1;
-//                    }
-//                }
-//                printf("ÍË·¿³É¹¦£¡\n");
-//                displayBookedRooms(room, numRooms);
-//                return;
-//            } else {
-//                printf("¸Ã·¿¼äÎ´±»Ô¤¶©£¬ÎŞĞèÍË·¿¡£\n");
-//                return;
-//            }
-//        }
-//    }
-//    printf("Î´ÕÒµ½¸Ã·¿¼äºÅ£¬ÇëÖØĞÂÊäÈë¡£\n");
-//}
-//
-////³äÖµ
-//void charge(struct guest guest[], int index) {
-//    displaying_guest(guest, index);
-//    int s;
-//    int choice;
-//    printf("\t*1.³äÖµ*\t\n");
-//    printf("\t*2.È¡Ïû*\t\n");
-//    scanf("%d", &choice);
-//    while (choice != 1 && choice != 2) {
-//        printf("ÎŞĞ§ÊäÈë£¬ÇëÖØĞÂÑ¡Ôñ£º");
-//        scanf("%d", &choice);
-//    }
-//    if (choice == 1) {
-//        printf("ÇëÊäÈëĞèÒª³äÖµµÄÊı¶î£º");
-//        scanf("%d", &s);
-//        guest[index].sum += s;
-//        if (guest[index].sum > 500) {
-//            strcpy(guest[index].whether_VIP, "VIP");
-//            displaying_guest(guest, index);
-//        }
-//    } else {
-//        printf("\t*ÒÑÈ¡Ïû³äÖµ²Ù×÷¡£*\t\n");
-//    }
-//}
-//
-//// ĞŞÕıºóµÄguest_systemº¯Êı
-//void guest_system(struct guest guest[], struct rooms_info room[], int *numGuest, int *numRooms) {
-//    int choice;
-//    regist_name(guest, numGuest); // ´«µİÖ¸Õë
-//    whether_VIP(guest, numGuest, room, numRooms); // ²ÎÊıË³ĞòĞŞÕı
-//    do {
-//        displayingRooms(room, numRooms);
-//        printf("\t*1. Ô¤¶©·¿¼ä*\t\n");
-//        printf("\t*2. ÍË·¿*\t\n");
-//        printf("\t*3.³äÖµ*\t\n");
-//        printf("\t*0. ÍË³öÂÃ¿ÍÏµÍ³*\t\n");
-//        printf("Çë×ö³öÑ¡Ôñ:");
-//        scanf("%d", &choice);
-//        switch (choice) {
-//            case 1:
-//                book_room(room, numRooms, guest, numGuest);
-//                break;
-//            case 2:
-//                check_out(room, numRooms, guest, numGuest);
-//                break;
-//            case 3:
-//                charge(guest, *numGuest - 1);
-//                break;
-//            case 0:
-//                printf("\t*ÒÑ³É¹¦ÍË³öÂÃ¿ÍÏµÍ³¡£*\t\n");
-//                break;
-//            default:
-//                printf("\t*ÎŞĞ§ÊäÈë£¬ÇëÖØĞÂÊäÈë£¡*\t\n");
-//        }
-//    } while (choice != 0);
-//}
-//
-//int main(int argc, char *argv[]) {
-//    int choice;
-//    int numRooms;
-//    int numGuest = 0;
-//    struct rooms_info room[Max_rooms];
-//    struct guest guest[Max_guest];
-//    initializeRooms(room, &numRooms);
-//    do {
-//        printf("\t*»¶Ó­¹âÁÙ±¾¾Æµê*\t\n");
-//        printf("\t*ºÜ¸ßĞËÎªÄú·şÎñ*\t\n");
-//        printf("\t*1.¹¤×÷ÈËÔ±*\t\n");
-//        printf("\t*2.ÓÎ¿ÍµÇÂ¼*\t\n");
-//        printf("\t*0.ÍË³ö*\t\n");
-//        printf("Çë×ö³öÑ¡Ôñ:");
-//        scanf("%d", &choice);
-//        switch (choice) {
-//            case 1:
-//                hotel_system(room, &numRooms, guest, numGuest);
-//                break;
-//            case 2:
-//                guest_system(guest, room, &numGuest, &numRooms);
-//                break;
-//            case 0:
-//                printf("¸ĞĞ»Ê¹ÓÃ£¬ÔÙ¼û£¡\n");
-//                break;
-//            default:
-//                printf("´íÎóÊäÈë");
-//                system("pause");
-//                system("cls");
-//        }
-//    } while (choice != 0);
-//    return 0;
-//}
